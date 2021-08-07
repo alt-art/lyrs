@@ -19,7 +19,7 @@ if (token == undefined) {
 
 let inputCopy = document.querySelector("#copy");
 
-if (inputCopy != undefined) {
+if (inputCopy != null) {
     inputCopy.addEventListener("click", ()=>{
         inputToken.select();
         inputToken.setSelectionRange(0, 99999);
