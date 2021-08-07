@@ -1,40 +1,56 @@
-use std::env;
-use genius_rs::Genius;
-use pager::Pager;
-use ansi_term::Colour;
+mod config;
+mod song;
+
+use clap::{App, Arg, AppSettings::ColoredHelp};
+use ansi_term::Colour::Green;
+use config::{Config, get_config, write_config};
+use song::get_song_lyrics;
 
 #[tokio::main]
 async fn main() {
-    let args: Vec<String> = env::args().collect();
-    let genius = Genius::new(dotenv::var("TOKEN").unwrap());
-    let search = genius.search(&args[1]).await.unwrap();
-    if search.len() > 0 {
-        let lyric = genius.get_lyrics(&search[0].result.url).await.unwrap();
-        let green = Colour::Green;
-        let title = format!("{} - {}", search[0].result.primary_artist.name, search[0].result.title);
-        Pager::with_default_pager("less -r").setup();
-        println!("{}\n{}", green.bold().paint(title), search[0].result.url);
+    let matches = App::new("lyrs")
+        .about("Command line aplication for view lyrics")
+        .author("Pedro H. M. <pedromendescraft@gmail.com>")
+        .version("v0.1.0")
+        .version_short("v")
+        .setting(ColoredHelp)
+        .args(&[
+            Arg::with_name("login")
+                .short("l")
+                .long("login")
+                .conflicts_with("SEARCH")
+                .help("Login in with a genius account"),
+            Arg::with_name("SEARCH")
+                .multiple(true)
+                .required(true)
+                .index(1)
+                .required_unless("login")
+                .help("Search for a song like (i.e) Slipknot Duality")
+        ])
+        .get_matches();
 
-        for verse in lyric {
-            if verse.contains("[") && verse.contains("]") {
-                println!("\n{}\n", Colour::Blue.bold().paint(verse));
-            } else {
-                println!("{}", verse)
+    if matches.is_present("login") {
+        println!("lyrs oppened a url in your broser to login\nLogin and paste the token here:");
+        open::that_in_background(
+            genius_rs::auth::auth_url("eq0nkVmDHjhIZ8NjUbg9TWPXqHEt0oRa4tCQZ7ez2qgoQKGclsAgW7aLyARy67FK","", "", "", "token")
+        );
+        let mut input = String::new();
+        std::io::stdin().read_line(&mut input).unwrap();
+        input.pop();
+        let config = Config {token: input};
+        write_config(config);
+    }
+
+    if let Some(v) = matches.values_of("SEARCH") {
+        let query = v.collect::<Vec<_>>().join(" ");
+        let config = get_config();
+        match config {
+            Some(c) => get_song_lyrics(&query, c).await,
+            None => {
+                println!("You are not logged, use {} to login", Green.paint("--login"));
+                std::process::exit(1);
             }
         }
-
-        let others_len =  if search.len() < 4 {search.len()} else {4};
-        if others_len - 1 > 0 {
-            let other_results = format!("\n{} other results:", others_len - 1);
-            println!("{}", Colour::Yellow.bold().paint(other_results));
-            for i in 1..others_len {
-                let title = format!("{} - {}", search[i].result.primary_artist.name, search[i].result.title);
-                println!("{}", green.bold().paint(title));
-            }
-        }
-    } else {
-        println!("No results found.");
-        std::process::exit(1);
     }
     std::process::exit(0);
 }
