@@ -5,7 +5,7 @@ use std::path::PathBuf;
 
 #[derive(Deserialize, Serialize)]
 pub struct Config {
-    pub token: String
+    pub token: String,
 }
 
 fn get_config_file() -> PathBuf {

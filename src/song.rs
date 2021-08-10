@@ -1,7 +1,7 @@
+use crate::config::Config;
+use ansi_term::Colour;
 use genius_rs::Genius;
 use pager::Pager;
-use ansi_term::Colour;
-use crate::config::Config;
 
 pub async fn get_song_lyrics(query: &str, config: Config) {
     let genius = Genius::new(config.token);
@@ -22,7 +22,7 @@ pub async fn get_song_lyrics(query: &str, config: Config) {
             }
         }
 
-        let others_len =  if search.len() < 4 {search.len()} else {4};
+        let others_len = if search.len() < 4 { search.len() } else { 4 };
         if others_len - 1 > 0 {
             let other_results = format!("\n{} other results:", others_len - 1);
             println!("{}", Colour::Yellow.bold().paint(other_results));
