@@ -9,7 +9,7 @@ use song::get_song_lyrics;
 #[tokio::main]
 async fn main() {
     let matches = App::new("lyrs")
-        .about("Command line aplication for view lyrics")
+        .about("Command line aplication to view lyrics")
         .author("Pedro H. M. <pedromendescraft@gmail.com>")
         .version("v0.1.0")
         .version_short("v")

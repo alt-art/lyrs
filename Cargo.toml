@@ -1,6 +1,6 @@
 [package]
 name = "lyrs"
-description = "Command line aplication for view lyrics"
+description = "Command line aplication to view lyrics"
 version = "0.1.0"
 authors = ["alt-art <pedromendescraft@gmail.com>"]
 repository = "https://github.com/alt-art/lyrs"
@@ -25,7 +25,7 @@ tokio = {version = "1.9.0", features = ["full"]}
 maintainer = "Pedro Mendes <pedromendescraft@gmail.com>"
 copyright = "2020, Pedro Mendes <pedromendescraft@gmail.com>"
 license-file = ["LICENSE", "0"]
-extended-description = "Command line application for view lyrics using Genius API"
+extended-description = "Command line application to view lyrics using Genius API"
 section = "utils"
 priority = "optional"
 assets = [
