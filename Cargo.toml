@@ -20,3 +20,15 @@ open = "2.0.0"
 serde = {version = "1.0.127", features=["derive"]}
 toml = "0.5.8"
 tokio = {version = "1.9.0", features = ["full"]}
+
+[package.metadata.deb]
+maintainer = "Pedro Mendes <pedromendescraft@gmail.com>"
+copyright = "2020, Pedro Mendes <pedromendescraft@gmail.com>"
+license-file = ["LICENSE", "0"]
+extended-description = "Command line application for view lyrics using Genius API"
+section = "utils"
+priority = "optional"
+assets = [
+    # Binary
+    ["target/release/lyrs", "/usr/bin/", "111"],
+]
