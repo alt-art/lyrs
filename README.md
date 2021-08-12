@@ -1,5 +1,5 @@
 # lyrs
-Command line aplication for view lyrics.
+Command line aplication to view lyrics.
 
 ![lyrs](https://media.githubusercontent.com/media/alt-art/lyrs/main/resource/lyrs.png)
 
