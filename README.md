@@ -17,5 +17,5 @@ FLAGS:
     -v, --version    Prints version information
 
 ARGS:
-    <SEARCH>...    Search for a song like (i.e) Slipknot Duality
+    <SEARCH>...    Search for a song like (e.g Slipknot Duality)
 ```

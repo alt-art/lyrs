@@ -25,7 +25,7 @@ async fn main() {
                 .required(true)
                 .index(1)
                 .required_unless("login")
-                .help("Search for a song like (i.e) Slipknot Duality"),
+                .help("Search for a song like (e.g Slipknot Duality)"),
         ])
         .get_matches();
 
