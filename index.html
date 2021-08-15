@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#181A1B">
     <meta name="application-name" content="alt-art/lyrs">
     <title>lyrs | alt-art</title>
+    <script async src="./script.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="https://media.githubusercontent.com/media/alt-art/lyrs/gh-pages/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://media.githubusercontent.com/media/alt-art/lyrs/gh-pages/favicon-16x16.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -61,40 +62,15 @@ Command line aplication to view lyrics
 
     <footer class="fixed-footer">
         <div class="bottom-buttons">
-            <a href="https://github.com/alt-art/lyrs/releases/download/v0.1.0/lyrs_0.1.0_amd64.deb"
+            <a id="binary-download"
                 class="btn selected"><span class="material-icons">download</span> Download Package .DEB</a>
-            <a href="https://github.com/alt-art/lyrs/archive/refs/tags/v0.1.0.zip" class="btn"><span
+            <a id="code-download" class="btn"><span
                     class="material-icons">arrow_downward</span> Download Code</a>
             <a href="https://github.com/alt-art/lyrs" class="btn"><span class="material-icons">visibility</span> View
                 Code</a>
         </div>
     </footer>
 
-    <script>
-        let musics = [
-            "Slipknot Duality",
-            "AViVA GRRRLS",
-            "Justin Bieber Justice",
-            "Doja Cat Like That",
-            "Linkin Park In The End",
-            "Slipknot Duality"
-        ]
-        let i = 0;
-        let music_txt = document.querySelector('.music-example')
-
-        function change_music() {
-            setTimeout(() => {
-                if (i > (musics.length - 1))
-                    i = 0
-
-                music_txt.innerText = musics[i]
-                i++
-                change_music()
-            }, 3000)
-        }
-
-        change_music()
-    </script>
 </body>
 
 </html>
