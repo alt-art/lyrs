@@ -30,7 +30,7 @@ async fn main() {
         .get_matches();
 
     if matches.is_present("login") {
-        println!("lyrs oppened a url in your broser to login\nLogin and paste the token here:");
+        println!("lyrs oppened a url in your browser to login\nLogin and paste the token here:");
         open::that_in_background(genius_rs::auth::auth_url(
             "eq0nkVmDHjhIZ8NjUbg9TWPXqHEt0oRa4tCQZ7ez2qgoQKGclsAgW7aLyARy67FK",
             "",
