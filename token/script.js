@@ -7,20 +7,18 @@ function getUrlVars() {
 }
 
 let token = getUrlVars()["access_token"];
-
-
+let inputCopy = document.querySelector("#copy");
 let inputToken = document.querySelector("#token");
+let msg = document.querySelector(".token-message");
+
 if (token == undefined) {
-    let divToken = document.querySelector(".token");
-    divToken.innerHTML = "Login failed";
+    msg.innerText = "Login failed";
 } else {
     inputToken.value = token;
 }
 
-let inputCopy = document.querySelector("#copy");
-
 if (inputCopy != null) {
-    inputCopy.addEventListener("click", ()=>{
+    inputCopy.addEventListener("click", () => {
         inputToken.select();
         inputToken.setSelectionRange(0, 99999);
         document.execCommand("copy");

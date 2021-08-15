@@ -4,11 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kugi Haito <kugihaito99@gmail.com>">
+    <meta name="description" content="Command line application for view lyrics">
+    <meta name="keywords" content="commandline, command, line, application, lyrics, lyrs">
+    <meta name="theme-color" content="#181A1B">
+    <meta name="application-name" content="alt-art/lyrs">
+    <title>lyrs | AltArt</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
-    <title>lyrs</title>
 </head>
 <body>
-    <h1>lyrs</h1>
-    <h3>Command line application for view lyrics</h3>
+    <main>
+        <section>
+            <div class="content">
+                <div class="content">
+                    <h1 class="headline-1"><b>AltArt</b><span class="color-theme">/lyrs</span></h1>
+                    <h2 class="subtitle-2 text-light text-monospace"><span class="color-theme">&#11044;</span> Rust Application by  <a class="text-monospace" href="https://github.com/alt-art">@alt-art</a></h2>
+                </div>
+            </div>
+        </section>
+        <article>
+            <div class="content">
+                <div class="content-flex">
+                    <h3 class="lead">Command line application for view lyrics</h3>
+
+                    <div>
+                        <p>
+                            <pre>
+lyrs <span class="color-theme text-monospace">v0.1.0</span>
+Pedro H. M. &lt;pedromendescraft@gmail.com&gt;
+Command line aplication to view lyrics
+
+<span class="color-theme text-monospace">USAGE</span>:
+    lyrs [FLAGS] &lt;SEARCH&gt;...
+
+<span class="color-theme text-monospace">FLAGS</span>:
+    -h, --help       Prints help information
+    -l, --login      Login in with a genius account
+    -v, --version    Prints version information
+
+<span class="color-theme text-monospace">ARGS</span>:
+    &lt;SEARCH&gt;...    Search for a song like (i.e) <span class="color-theme text-monospace music-example">Slipknot Duality</span>
+                            </pre>
+                        </p>
+                        <a href="https://github.com/alt-art/genius-rs" class="tag">require <b>genius-rs</b></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="fixed-footer">
+        <div class="bottom-buttons">
+            <a href="https://github.com/alt-art/lyrs/releases/download/v0.1.0/lyrs_0.1.0_amd64.deb" class="btn selected"><span class="material-icons">download</span> Download App</a>
+            <a href="https://github.com/alt-art/lyrs/archive/refs/tags/v0.1.0.zip" class="btn"><span class="material-icons">arrow_downward</span> Download Code</a>
+            <a href="https://github.com/alt-art/lyrs" class="btn"><span class="material-icons">visibility</span> View Code</a>
+        </div>
+    </footer>
+
+    <script>
+        let musics = [
+            "Slipknot Duality",
+            "AViVA GRRRLS",
+            "Justin Bieber Justice",
+            "Doja Cat Like That",
+            "Linkin Park In The End",
+            "Slipknot Duality"
+        ]
+        let i = 0;
+        let music_txt = document.querySelector('.music-example')
+
+        function change_music() {
+            setTimeout(() => {
+                if (i > (musics.length - 1))
+                    i = 0
+                
+                music_txt.innerText = musics[i]
+                i++
+                change_music()
+            }, 3000)
+        }
+
+        change_music()
+    </script>
 </body>
 </html>
