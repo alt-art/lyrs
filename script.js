@@ -4,23 +4,17 @@ let musics = [
     "Justin Bieber Justice",
     "Doja Cat Like That",
     "Linkin Park In The End",
-    "Slipknot Duality"
 ];
 let i = 0;
 let musicTxt = document.querySelector('.music-example');
 
-function change_music() {
-    setTimeout(() => {
-        if (i > (musics.length - 1))
-            i = 0;
+setInterval(() => {
+    if (i > musics.length - 1)
+        i = 0;
 
-        musicTxt.innerText = musics[i];
-        i++;
-        change_music();
-    }, 3000);
-}
-
-change_music();
+    musicTxt.innerText = musics[i];
+    i++;
+}, 3000);
 
 let codeDownload = document.querySelector("#code-download");
 let binaryDownload = document.querySelector("#binary-download");
