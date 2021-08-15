@@ -143,7 +143,7 @@ main > div {
 }
 .lead {
     font-size: 1.45rem;
-    font-weight: 100;
+    font-weight: 300;
 }
 .subtitle-1 {
     font-size: 18px;
@@ -186,16 +186,10 @@ main > div {
     transition: linear .2s;
 }
 
-input {
-    width: 100%;
-    padding: 20px 40px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 50px;
-    background: rgba(0, 0, 0, .3);
-    font-size: 18px;
-    font-weight: 300;
-    color: #EEE;
+.token {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 pre {
@@ -224,15 +218,16 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.bottom-buttons > .btn {
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
     padding: 20px 40px;
 }
-.bottom-buttons > .btn.selected {
+.btn.selected {
     background: var(--theme-color);
+    border: none;
     color: #fff;
 }
 .bottom-buttons .material-icons {
