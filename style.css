@@ -8,13 +8,17 @@
 ::-webkit-scrollbar {
     background: #181A1B;
     width: 8px;
+    height: 5px;
 }
 ::-webkit-scrollbar-track {
     background-color: #181A1B;
 }
 ::-webkit-scrollbar-thumb {
     background: var(--theme-color);
-}
+}/*
+.help-code::-webkit-scrollbar-thumb {
+
+}*/
 ::selection {
     background: rgba(0, 0, 0, .3);
 }
@@ -32,6 +36,7 @@ body {
     overflow-x: hidden;
     background: #181A1B;
     color: #cecece;
+    height: 100vh;
 }
 
 h1 {
@@ -199,6 +204,7 @@ pre {
     background: rgba(0, 0, 0, .3);
     font-family: monospace;
     border-radius: 5px;
+    overflow-x: auto;
 }
 
 footer {
@@ -250,7 +256,6 @@ footer {
 
     pre {
         padding: 10px 20px;
-        font-size: 12px;
     }
 }
 
@@ -273,7 +278,7 @@ footer {
     }
 
     pre {
-        font-size: 10px;
+        font-size: 12px;
         padding: 10px 15px;
     }
 
@@ -288,7 +293,7 @@ footer {
 
 @media(max-width: 420px) {
     .headline-1 {
-        font-size: 58px;
+        font-size: 54px;
     }
 
     .tag {
@@ -296,7 +301,7 @@ footer {
     }
 
     pre {
-        font-size: 7px;
+        font-size: 10px;
         padding: 10px;
     }
 }
@@ -315,7 +320,18 @@ footer {
     }
 
     pre {
-        font-size: 5px;
         padding: 10px;
+    }
+}
+
+@media (max-height: 500px) {
+    main {
+        height: calc(100% + 50px);
+    }
+}
+
+@media (orientation:  landscape) {
+    main {
+        height: calc(100% + 240px);
     }
 }
