@@ -1,9 +1,17 @@
 let musics = [
     "Slipknot Duality",
     "AViVA GRRRLS",
-    "Justin Bieber Justice",
-    "Doja Cat Like That",
-    "Linkin Park In The End",
+    "Justin Bieber Yummy",
+    "Doja Cat Say So",
+    "Dua Lipa New Rules",
+    "Linkin Park Numb",
+    "Marshmello Alone",
+    "Tiësto Ritual",
+    "Halsey Gasoline",
+    "Au/Ra Ghost",
+    "Nico Collins Hate Me",
+    "R. Kelly Cookie",
+    "Jixi Kitty Kat"
 ];
 let i = 0;
 let musicTxt = document.querySelector('.music-example');
