@@ -15,10 +15,8 @@
 }
 ::-webkit-scrollbar-thumb {
     background: var(--theme-color);
-}/*
-.help-code::-webkit-scrollbar-thumb {
+}
 
-}*/
 ::selection {
     background: rgba(0, 0, 0, .3);
 }
@@ -234,6 +232,15 @@ footer {
     background: var(--theme-color);
     border: none;
     color: #fff;
+}
+button.btn.selected {
+    margin: 2rem;
+    cursor: pointer;
+    transition: .09s;
+}
+button.btn.selected:active {
+    background-color: #b95371;
+    border: #fff 1px solid;
 }
 .bottom-buttons .material-icons {
     margin: 0 5px;
