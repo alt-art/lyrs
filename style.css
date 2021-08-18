@@ -36,7 +36,6 @@ body {
     overflow-x: hidden;
     background: #181A1B;
     color: #cecece;
-    height: 100vh;
 }
 
 h1 {
@@ -330,7 +329,7 @@ footer {
     }
 }
 
-@media (orientation:  landscape) {
+@media(max-width: 420px) and (orientation: landscape) {
     main {
         height: calc(100% + 240px);
     }
