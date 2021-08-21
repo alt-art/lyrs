@@ -1,6 +1,8 @@
 use crate::config::Config;
 use ansi_term::Colour;
 use genius_rs::Genius;
+
+#[cfg(unix)]
 use pager::Pager;
 
 pub async fn get_song_lyrics(query: &str, config: Config) {
@@ -11,7 +13,10 @@ pub async fn get_song_lyrics(query: &str, config: Config) {
         let lyric = genius.get_lyrics(&song.url).await.unwrap();
         let green = Colour::Green;
         let title = format!("{} - {}", song.primary_artist.name, song.title);
+
+        #[cfg(unix)]
         Pager::with_default_pager("less -r").setup();
+
         println!("{}\n{}", green.bold().paint(title), song.url);
 
         for verse in lyric {
