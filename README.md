@@ -1,7 +1,7 @@
 # lyrs
 Command line aplication to view lyrics.
 
-## Sumary
+## Summary
 - [How to build](#how-to-build)
     - [Building a .deb package](#building-a-deb-package)
 - [Usage](#usage)
