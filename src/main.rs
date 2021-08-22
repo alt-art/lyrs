@@ -8,6 +8,8 @@ use song::get_song_lyrics;
 
 #[tokio::main]
 async fn main() {
+    #[cfg(windows)]
+    ansi_term::enable_ansi_support().unwrap();
     let matches = App::new("lyrs")
         .about("Command line aplication to view lyrics")
         .author("Pedro H. M. <pedromendescraft@gmail.com>")
