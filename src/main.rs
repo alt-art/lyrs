@@ -42,7 +42,8 @@ async fn main() {
         ));
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).unwrap();
-        input.pop();
+        let x: &[_] = &['\n', '\r'];
+        input = input.trim_end_matches(x).to_string();
         let config = Config { token: input };
         write_config(config);
     }
