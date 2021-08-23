@@ -32,7 +32,7 @@ fetch("https://api.github.com/repos/alt-art/lyrs/releases/latest").then((respons
 }).then((data) => {
     let zipUrl = data.zipball_url;
     codeDownload.href = zipUrl;
-    let binUrl = data.assets[0].browser_download_url;
+    let binUrl = data.assets[1].browser_download_url;
     binaryDownload.href = binUrl;
 }).catch((reason) => {
     console.error("Error when requesting the last release", reason);
