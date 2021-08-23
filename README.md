@@ -27,7 +27,7 @@ cargo deb # Build .deb package in release mode
 ## Usage
 
 ```
-lyrs v0.1.0
+lyrs v0.1.1
 Pedro H. M. <pedromendescraft@gmail.com>
 Command line aplication to view lyrics
 
