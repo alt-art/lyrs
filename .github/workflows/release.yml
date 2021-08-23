@@ -19,9 +19,10 @@ jobs:
     - name: Test
       run: cargo test --release
     - name: Build
-      run: cargo deb -o ./lyrs_${GITHUB_REF##*/}_amd64.deb --verbose 
+      run: cargo deb --verbose 
     - name: Upload .deb package
       run: |
+        cp ./target/debian/*.deb ./lyrs_${GITHUB_REF##*/}_amd64.deb
         ./.github/workflows/upload_asset.sh \
           "alt-art/lyrs" ./lyrs_${GITHUB_REF##*/}_amd64.deb $GITHUB_TOKEN
 
