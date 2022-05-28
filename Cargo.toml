@@ -11,14 +11,14 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-genius-rs = "0.3.0"
+genius-rs = "0.5.0"
 ansi_term = "0.12.1"
-clap = "2.33.3"
-dirs = "3.0.2"
+clap = "3.1.18"
+dirs = "4.0.0"
 open = "2.0.0"
-serde = {version = "1.0.127", features=["derive"]}
-toml = "0.5.8"
-tokio = {version = "1.9.0", features = ["full"]}
+serde = {version = "1.0.137", features=["derive"]}
+toml = "0.5.9"
+tokio = {version = "1.18.2", features = ["full"]}
 
 [target.'cfg(unix)'.dependencies]
 pager = "0.16.0"

@@ -10,7 +10,7 @@ pub async fn get_song_lyrics(query: &str, config: Config) {
     let search = genius.search(query).await.unwrap();
     if !search.is_empty() {
         let song = &search[0].result;
-        let lyric = genius.get_lyrics(&song.url).await.unwrap();
+        let lyric = genius.get_lyrics(song.id).await.unwrap();
         let green = Colour::Green;
         let title = format!("{} - {}", song.primary_artist.name, song.title);
 

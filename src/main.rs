@@ -14,11 +14,11 @@ async fn main() {
         .about("Command line aplication to view lyrics")
         .author("Pedro H. M. <pedromendescraft@gmail.com>")
         .version("v0.1.1")
-        .version_short("v")
+        .version_short('v')
         .setting(ColoredHelp)
         .args(&[
             Arg::with_name("login")
-                .short("l")
+                .short('l')
                 .long("login")
                 .conflicts_with("SEARCH")
                 .help("Login in with a genius account"),
@@ -33,13 +33,16 @@ async fn main() {
 
     if matches.is_present("login") {
         println!("lyrs oppened a url in your browser to login\nLogin and paste the token here:");
-        open::that_in_background(genius_rs::auth::auth_url(
-            "eq0nkVmDHjhIZ8NjUbg9TWPXqHEt0oRa4tCQZ7ez2qgoQKGclsAgW7aLyARy67FK",
-            "",
-            "",
-            "",
-            "token",
-        ));
+        open::that_in_background(
+            genius_rs::auth::auth_url(
+                "eq0nkVmDHjhIZ8NjUbg9TWPXqHEt0oRa4tCQZ7ez2qgoQKGclsAgW7aLyARy67FK",
+                "token",
+                None,
+                None,
+                None,
+            )
+            .to_string(),
+        );
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).unwrap();
         let x: &[_] = &['\n', '\r'];
