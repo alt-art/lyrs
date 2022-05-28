@@ -13,7 +13,7 @@ async fn main() {
     let matches = App::new("lyrs")
         .about("Command line aplication to view lyrics")
         .author("Pedro H. M. <pedromendescraft@gmail.com>")
-        .version("v0.1.1")
+        .version("v0.1.2")
         .version_short('v')
         .setting(ColoredHelp)
         .args(&[
