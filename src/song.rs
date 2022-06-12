@@ -8,12 +8,15 @@ use pager::Pager;
 pub async fn get_song_lyrics(query: &str, config: Config) {
     let genius = Genius::new(config.token);
     let search = genius.search(query).await.unwrap();
-    if !search.is_empty() {
+    if search.is_empty() {
+        println!("No results found.");
+        std::process::exit(1);
+
+    } else {
         let song = &search[0].result;
         let lyric = genius.get_lyrics(song.id).await.unwrap();
         let green = Colour::Green;
         let title = format!("{} - {}", song.primary_artist.name, song.title);
-
         #[cfg(unix)]
         Pager::with_default_pager("less -r").setup();
 
@@ -21,9 +24,9 @@ pub async fn get_song_lyrics(query: &str, config: Config) {
 
         for verse in lyric {
             if verse.contains('[') && verse.contains(']') {
-                println!("\n{}\n", Colour::Blue.bold().paint(verse));
+                println!("\n{}\n", Colour::Blue.bold().paint(verse.trim()));
             } else {
-                println!("{}", verse)
+                println!("{}", verse.trim());
             }
         }
 
@@ -37,8 +40,5 @@ pub async fn get_song_lyrics(query: &str, config: Config) {
                 println!("{}", green.bold().paint(title));
             }
         }
-    } else {
-        println!("No results found.");
-        std::process::exit(1);
     }
 }
